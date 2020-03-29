@@ -1,14 +1,14 @@
-version: '3.7'
+version: "3.7"
 
 services:
   mysql:
-    image: mysql:5.7
+    build: ./mysql
     command:
       - --sql-mode=NO_ENGINE_SUBSTITUTION
     volumes:
       - db_data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: 'test'
+      MYSQL_ROOT_PASSWORD: "test"
 
   phpmyadmin:
     depends_on:
@@ -29,4 +29,4 @@ services:
       - mysql
 
 volumes:
-    db_data: {}
+  db_data: {}
